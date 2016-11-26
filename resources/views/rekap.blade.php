@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sarah APP</title>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/materialize.min.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/animate.min.css') }}">
+	
+	<script type="text/javascript">
+  		window.onscroll = function () {
+		 window.scrollTo(0,0);
+		}
+	</script>
+</head>
+
+<body class="dashboard">
+  	
+	<!-- Menu -->
+	<div id="slide-out" class="side-nav">
+  		<div id="menu-wrapper" class="rel">
+  			<div class="row">
+  				<div class="col s6">
+  					<img class="photo" src="{{ URL::asset('assets/img/ganteng.jpg') }}">
+  				</div>
+  				<div class="col s6">
+  					<div class="profile-name text-white">M. Huda</div>
+  					<small>Admin</small>
+  				</div>
+  			</div>
+			<!-- <div class="profil">Pengaturan akun</div> -->
+		  	<ul>
+	          <li><img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a></li>
+	          <li><img src="{{ URL::asset('assets/img/milk.png') }}"> <a href="/dash/kualitas">Kualitas susu</a></li>
+	          <li><img src="{{ URL::asset('assets/img/note.png') }}"> <a href="/dash/rekap">Rekap</a></li>
+	        </ul>
+
+		  	<!-- <div class="copy">
+		  		&copy;
+		  	</div> -->
+  		</div>
+	</div>
+  	
+  	<!-- Header -->
+  	<div class="header">
+  		<div id="wrapper-d" class="no-margin">
+	  		<div class="row">
+	  			<div class="col s2">
+	  				<a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
+	  			</div>
+	  			<div class="col s8 center-align title uppercase">
+	  				Riwayat Kualitas
+	  			</div>
+	  			<div class="col s2 right-align">
+	  				<a href="/dash/kualitas"><img class="img-btn" src="{{ URL::asset('assets/img/plus.png') }}"></a>
+	  			</div>
+	  		</div>
+  		</div>
+  	</div>
+
+  	<div id="wrapper-d" class="wow fadeIn">
+  		<h5>Juli 2016</h5>
+
+  		<table class="tbl-kualitas">
+	        <tbody>
+	          	<tr class="wow fadeInUp">
+	            	<td class="bold uppercase text-tosca">Kamis,</td>
+	            	<td>21-07-2016</td>
+	            	<td>
+	            		<a href="/dash/kualitas/detail">
+	            			<div class="chip bg-red uppercase">Tidak baik</div>
+				        </a>
+	            	</td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay=".2s">
+	            	<td class="bold uppercase text-tosca">Rabu,</td>
+	            	<td>20-07-2016</td>
+	            	<td><div class="chip bg-green uppercase">Baik</div></td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay=".4s">
+	            	<td class="bold uppercase text-tosca">Selasa,</td>
+	            	<td>19-07-2016</td>
+	            	<td><div class="chip bg-green uppercase">Baik</div></td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay=".6s">
+	            	<td class="bold uppercase text-tosca">Senin,</td>
+	            	<td>18-07-2016</td>
+	            	<td><div class="chip bg-green uppercase">Baik</div></td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay=".8s">
+	            	<td class="bold uppercase text-tosca">Minggu,</td>
+	            	<td>17-07-2016</td>
+	            	<td><div class="chip bg-red uppercase">Tidak baik</div></td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay="1s">
+	            	<td class="bold uppercase text-tosca">Sabtu,</td>
+	            	<td>16-07-2016</td>
+	            	<td><div class="chip bg-red uppercase">Tidak baik</div></td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay="1.2s">
+	            	<td class="bold uppercase text-tosca">Jumat,</td>
+	            	<td>15-07-2016</td>
+	            	<td><div class="chip bg-green uppercase">Baik</div></td>
+	          	</tr>
+	          	<tr class="wow fadeInUp" data-wow-delay="1.4s">
+	            	<td class="bold uppercase text-tosca">Kamis,</td>
+	            	<td>14-07-2016</td>
+	            	<td><div class="chip bg-green uppercase">Baik</div></td>
+	          	</tr>
+	        </tbody>
+      	</table>
+  	</div>
+
+  	<!-- Javascript -->
+  	<script type="text/javascript" src="{{ URL::asset('assets/js/jquery-1.12.4.min.js') }}"></script>   
+    <script type="text/javascript" src="{{ URL::asset('assets/js/wow.min.js') }}"></script>   
+    <script type="text/javascript" src="{{ URL::asset('assets/js/materialize.min.js') }}"></script>   
+  	<script type="text/javascript">
+	  	$('.button-collapse').sideNav({
+	      menuWidth: 240, // Default is 240
+	      edge: 'left', // Choose the horizontal origin
+	      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+	      draggable: true // Choose whether you can drag to open on touch screens
+	    }
+  		);
+
+	    new WOW().init();
+  	</script>
+</body>
+</html>
+
