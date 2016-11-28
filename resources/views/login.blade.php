@@ -33,13 +33,13 @@
 					
 					<h1 class="wow fadeInUp" data-wow-delay="1s">Sarah</h1>
 					<div class="lg-divider"></div>
-					<form method="post" action="/dash" class="form-login">
-					
-						<input class="wow fadeInLeft" data-wow-delay="1.5s" type="text" name="username" maxlength="10" placeholder="username">
-						<input class="wow fadeInRight" data-wow-delay="1.5s" type="password" name="password" maxlength="10" placeholder="password">
+					<!-- <form method="post" action="/dash" class="form-login"> -->
+					<div class="form-login">
+						<input class="wow fadeIn" data-wow-delay="1.5s" type="text" name="username" maxlength="10" placeholder="username">
+						<input class="wow fadeIn" data-wow-delay="1.8s" type="password" name="password" maxlength="10" placeholder="password">
 						<div class="divider"></div>
-						<button class="btn btn-tosca text-uppercase btn-block btn-lg wow zoomIn" data-wow-delay="2.2s">Login</button>
-					</form>
+						<a href="/dash"><button class="btn btn-tosca text-uppercase btn-block btn-lg wow zoomIn" data-wow-delay="2s">Login</button></a>
+					<!-- </form> -->
 					</div>
 				</div>
 			</div>

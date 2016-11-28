@@ -64,54 +64,27 @@
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
-  		<h5>Juli 2016</h5>
+  		<h5>November 2016</h5>
 
   		<table class="tbl-kualitas">
 	        <tbody>
-	          	<tr class="wow fadeInUp">
-	            	<td class="bold uppercase text-tosca">Kamis,</td>
-	            	<td>21-07-2016</td>
+
+	        <?php $no =0 ?>
+	        	@foreach($kualitass as $kualitas)
+	          	<tr class="wow fadeInUp" data-wow-delay=".{{ $no+=2 }}s">
+	            	<td class="bold uppercase text-tosca">{{ date('l', strtotime($kualitas->created_at)) }},</td>
+	            	<td class="bold uppercase text-tosca">{{ date('d M Y', strtotime($kualitas->created_at)) }}</td>
 	            	<td>
-	            		<a href="/dash/kualitas/detail">
-	            			<div class="chip bg-red uppercase">Tidak baik</div>
+	            		<a href="/dash/kualitas/detail/{{ $kualitas->id_cek }}">
+	            			@if ($kualitas->cek_warna === 1 && $kualitas->cek_rasa === 1 && $kualitas->cek_bau === 1)
+	            			<div class="chip bg-green uppercase">Baik</div>
+	            			@else
+	            			<div class="chip bg-red uppercase">Tidak Baik</div>
+	            			@endif
 				        </a>
 	            	</td>
 	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay=".2s">
-	            	<td class="bold uppercase text-tosca">Rabu,</td>
-	            	<td>20-07-2016</td>
-	            	<td><div class="chip bg-green uppercase">Baik</div></td>
-	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay=".4s">
-	            	<td class="bold uppercase text-tosca">Selasa,</td>
-	            	<td>19-07-2016</td>
-	            	<td><div class="chip bg-green uppercase">Baik</div></td>
-	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay=".6s">
-	            	<td class="bold uppercase text-tosca">Senin,</td>
-	            	<td>18-07-2016</td>
-	            	<td><div class="chip bg-green uppercase">Baik</div></td>
-	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay=".8s">
-	            	<td class="bold uppercase text-tosca">Minggu,</td>
-	            	<td>17-07-2016</td>
-	            	<td><div class="chip bg-red uppercase">Tidak baik</div></td>
-	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay="1s">
-	            	<td class="bold uppercase text-tosca">Sabtu,</td>
-	            	<td>16-07-2016</td>
-	            	<td><div class="chip bg-red uppercase">Tidak baik</div></td>
-	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay="1.2s">
-	            	<td class="bold uppercase text-tosca">Jumat,</td>
-	            	<td>15-07-2016</td>
-	            	<td><div class="chip bg-green uppercase">Baik</div></td>
-	          	</tr>
-	          	<tr class="wow fadeInUp" data-wow-delay="1.4s">
-	            	<td class="bold uppercase text-tosca">Kamis,</td>
-	            	<td>14-07-2016</td>
-	            	<td><div class="chip bg-green uppercase">Baik</div></td>
-	          	</tr>
+	          	@endforeach
 	        </tbody>
       	</table>
   	</div>

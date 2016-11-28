@@ -69,7 +69,7 @@
 		  		<h5>Tanggal Periksa</h5>
   			</div>
   			<div class="col s6 right-align">
-				<h5 class="bold text-tosca">15 November 2016</h5>
+				<h5 class="bold text-tosca">{{ date('d M Y', strtotime($detailKualitas->created_at)) }}</h5>
   			</div>
   		</div>
 
@@ -88,17 +88,17 @@
   					<tr>
   						<td class="bold">Warna</td>
   						<td>:</td>
-  						<td class="text-tosca">Putih</td>
+  						<td class="text-tosca">{{ $detailKualitas->warna->nama }}</td>
   					</tr>
   					<tr>
   						<td class="bold">Bau</td>
   						<td>:</td>
-  						<td class="text-tosca">Asam</td>
+  						<td class="text-tosca">{{ $detailKualitas->bau->nama }}</td>
   					</tr>
   					<tr>
   						<td class="bold">Rasa</td>
   						<td>:</td>
-  						<td class="text-tosca">Pahit</td>
+  						<td class="text-tosca">{{ $detailKualitas->rasa->nama }}</td>
   					</tr>
   				</table>
   			</div>
@@ -115,12 +115,18 @@
   		</div>
 		<div class="row">
 			<div class="col s12">
-			<table class="tbl-detail">
-				<tr>
-					<td class="bold">Kualitas</td>
-					<td width="100%;"><div class="chip bg-red uppercase">Tidak Baik</div></td>
-				</tr>
-			</table>
+    			<table class="tbl-detail">
+    				<tr>
+    					<td class="bold">Kualitas</td>
+    					<td width="100%;">
+                          @if ($detailKualitas->cek_warna === 1 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
+                          <div class="chip bg-green uppercase">Baik</div>
+                          @else
+                          <div class="chip bg-red uppercase">Tidak Baik</div>
+                          @endif
+                      </td>
+    				</tr>
+    			</table>
 			</div>
 		</div>
 

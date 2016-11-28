@@ -64,16 +64,18 @@
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
-  		<h5 class="bold text-tosca">15 November 2016</h5>
+  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
   		<br>
   		<h5>Lengkapi isian dibawah</h5>
-  		<form method="post">
+  		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/kualitas/add') }}">
+
+			{{ csrf_field() }}
   			<div class="row">
   				<div class="input-field col s6">
 	  				<label for="warna">Warna</label>
   				</div>
   				<div class="input-field col s6">
-		  			<select>
+		  			<select name="cek_warna" required="">
 		  				<option value="">Pilih warna</option>
 		  				<option value="1">Putih</option>
 		  				<option value="2">Merah</option>
@@ -87,7 +89,7 @@
 	  				<label for="warna">Bau</label>
   				</div>
   				<div class="input-field col s6">
-		  			<select>
+		  			<select name="cek_bau" required="">
 		  				<option value="">Pilih bau</option>
 		  				<option value="1">Busuk</option>
 		  				<option value="2">Asam</option>
@@ -99,7 +101,7 @@
 	  				<label for="warna">Rasa</label>
   				</div>
   				<div class="input-field col s6">
-		  			<select>
+		  			<select name="cek_rasa" required="">
 		  				<option value="">Pilih rasa</option>
 		  				<option value="1">Pahit</option>
 		  				<option value="2">Asam</option>

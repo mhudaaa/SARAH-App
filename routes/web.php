@@ -27,10 +27,10 @@ Route::get('/dash/kualitas', function () {
     return view('tambah-kualitas');
 });
 
-Route::get('/dash/rekap', function () {
-    return view('rekap');
-});
 
-Route::get('/dash/kualitas/detail', function () {
-    return view('detail-kualitas');
-});
+Route::get('/dash/kualitas/detail/{id}', 'KualitasController@detailKualitas');
+
+
+Route::get('/dash/rekap', 'KualitasController@index');
+
+Route::post('/dash/kualitas/add', 'KualitasController@tambahKualitas');

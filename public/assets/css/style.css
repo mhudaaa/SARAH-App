@@ -6,9 +6,18 @@ body{
 	font-family: 'Raleway';
 	letter-spacing: 1px;
 	color: #555!important;
+	-webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+
 }
 body.cow{
 	background: url(../img/bg-cow.jpg);
+	-webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
 }
 body.dashboard{
 	background-color: #f1f1f1; 
@@ -23,6 +32,10 @@ body.dashboard h5{
 }
 img{
 	max-width: 100%;
+	-webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
 }
 a, a:hover, a:visited{
 	text-decoration: none!important;
@@ -159,6 +172,7 @@ h6{
 	background-color: #fff;
 	color: #1abc9c;
 	padding: 20px 0 15px 0;
+
 }
 .header .title{
 	font-weight: 600;
@@ -308,4 +322,7 @@ table.dashboard td{
 table.dashboard td:last-child{
 	color: #999;
 }
+
+
+
 
