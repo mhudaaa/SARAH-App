@@ -35,7 +35,7 @@
   					<small>Admin</small>
   				</div>
   			</div>
-			 <a href="/dash/akun">
+			<a href="/dash/akun">
                 <div class="profil">
                     Pengaturan akun
                 </div>
@@ -60,7 +60,7 @@
 	  				<a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
 	  			</div>
 	  			<div class="col s8 center-align title uppercase">
-	  				Cek Kualitas
+	  				Pengaturan Akun
 	  			</div>
 	  			<div class="col s2 right-align">
 	  				<a href="/dash" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
@@ -70,55 +70,60 @@
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
-  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
-  		<br>
-  		<h5>Lengkapi isian dibawah</h5>
-  		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/kualitas/add') }}">
 
-			{{ csrf_field() }}
-  			<div class="row">
-  				<div class="input-field col s6">
-	  				<label for="warna">Warna</label>
+    	@foreach($users as $user)
+  		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/akun/ubahData') }}&{{ $user->id_user }}">
+  			
+  			<div class="row mini">
+  				<div class="input-field col s5">
+	  				<label for="warna" class="uppercase text-shadow text-dark"><small><b>Username</b></small></label>
   				</div>
-  				<div class="input-field col s6">
-		  			<select name="cek_warna" required="">
-		  				<option value="">Pilih warna</option>
-		  				<option value="1">Putih</option>
-		  				<option value="2">Merah</option>
-		  				<option value="3">Kuning</option>
-		  				<option value="4">Kebiru-biruan</option>
-		  			</select>
+  				<div class="input-field col s7">
+  					<input type="text" name="username" value="{{ $user->username }}" required="" maxlength="10">
   				</div>
   			</div>
-  			<div class="row">
-  				<div class="input-field col s6">
-	  				<label for="warna">Bau</label>
+  			<div class="row mini">
+  				<div class="input-field col s5">
+	  				<label for="warna" class="uppercase text-shadow text-dark"><small><b>Nama</b></small></label>
   				</div>
-  				<div class="input-field col s6">
-		  			<select name="cek_bau" required="">
-		  				<option value="">Pilih bau</option>
-		  				<option value="1">Busuk</option>
-		  				<option value="2">Asam</option>
-		  			</select>
+  				<div class="input-field col s7">
+  					<input type="text" name="nama" value="{{ $user->nama }}" required="" maxlength="15">
+  				</div>
+  				<input type="hidden" name="_token" value="{{{ csrf_token() }}}">
+  			</div>
+  			<br>
+  			<div class="row">
+  				<div class="col s10 offset-s1">
+	  				<input type="submit" class="btn btn-tosca z-depth-0 btn-block" value="simpan profil">
   				</div>
   			</div>
-  			<div class="row">
+  		</form>
+  		@endforeach
+
+  		<br><br>
+  		<h5>Ubah Password</h5>
+  		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/akun/ubahDataPassword') }}&{{ $user->id_user }}">
+  			<!-- <div class="row mini">
   				<div class="input-field col s6">
-	  				<label for="warna">Rasa</label>
+	  				<label for="warna" class="uppercase text-shadow text-dark"><small><b>Password Lama</b></small></label>
   				</div>
   				<div class="input-field col s6">
-		  			<select name="cek_rasa" required="">
-		  				<option value="">Pilih rasa</option>
-		  				<option value="1">Pahit</option>
-		  				<option value="2">Asam</option>
-		  				<option value="3">Agak Manis</option>
-		  			</select>
+  					<input type="password" name="passlama" value="" required="" maxlength="10">
+  				</div>
+  			</div> -->
+  			<div class="row mini">
+  				<div class="input-field col s6">
+	  				<label for="warna" class="uppercase text-shadow text-dark"><small><b>Password Baru</b></small></label>
+  				</div>
+  				<div class="input-field col s6">
+  					<input type="password" name="password" value="" required="" maxlength="15">
+  					<input type="hidden" name="_token" value="{{{ csrf_token() }}}">
   				</div>
   			</div>
-  			<br><br>
+  			<br>
   			<div class="row">
-  				<div class="col s8 offset-s2">
-	  				<input type="submit" class="btn btn-tosca z-depth-0 btn-block" value="simpan">
+  				<div class="col s10 offset-s1">
+	  				<input type="submit" class="btn btn-tosca z-depth-0 btn-block" value="simpan password">
   				</div>
   			</div>
   		</form>

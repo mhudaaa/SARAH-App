@@ -19,18 +19,22 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/dash', function () {
-    return view('dashboard');
-});
+Route::get('/dash', 'UserController@dash');
 
-Route::get('/dash/kualitas', function () {
-    return view('tambah-kualitas');
+Route::get('/dash/kualitas', 'KualitasController@formTambahKualitas');
+
+Route::get('/dash/akun', function () {
+    return view('akun');
 });
 
 
 Route::get('/dash/kualitas/detail/{id}', 'KualitasController@detailKualitas');
+Route::get('/dash/akun', 'UserController@detailUser');
 
 
 Route::get('/dash/rekap', 'KualitasController@index');
 
 Route::post('/dash/kualitas/add', 'KualitasController@tambahKualitas');
+
+Route::post('/dash/akun/ubahData&{id}', 'UserController@ubahDataAkun');
+Route::post('/dash/akun/ubahDataPassword&{id}', 'UserController@ubahDataPassword');

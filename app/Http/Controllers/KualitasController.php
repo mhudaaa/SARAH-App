@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Kualitas;
+use App\Model\User;
 use App\Model\Rasa;
 use App\Model\Warna;
 use App\Model\Bau;
@@ -11,8 +12,14 @@ use App\Model\Bau;
 class KualitasController extends Controller{
 
     public function index(){
+        $users = User::admin()->get();
     	$kualitass = Kualitas::all();
-    	return view('rekap', compact('kualitass'));	
+    	return view('rekap', compact('kualitass', 'users'));	
+    }
+
+    public function formTambahKualitas(){
+        $users = User::admin()->get();
+        return view('tambah-kualitas', compact('users'));    
     }
 
     public function tambahKualitas(Request $request){
@@ -21,11 +28,9 @@ class KualitasController extends Controller{
     }
 
     public function detailKualitas($id){
+        $users = User::admin()->get();
         $detailKualitas = Kualitas::findOrFail($id);
-        // $rasa   = Rasa::all();
-        // $warna  = Warna::all();
-        // $bau    = Bau::all();
-        return view('detail-kualitas', compact('detailKualitas'));
+        return view('detail-kualitas', compact('detailKualitas', 'users'));
         
     }
 

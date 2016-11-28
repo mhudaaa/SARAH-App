@@ -20,16 +20,20 @@
     <div class="side-nav" id="slide-out">
         <div class="rel" id="menu-wrapper">
             <div class="row">
-                <div class="col s6"><img class="photo" src="{{ URL::asset('assets/img/ganteng.jpg') }}"></div>
-                <div class="col s6">
+                <div class="col s5"><img class="photo" src="{{ URL::asset('assets/img/ganteng.jpg') }}"></div>
+                <div class="col s7">
                     <div class="profile-name text-white">
-                        M. Huda
+                        @foreach($users as $user)
+                            {{ $user->nama }}
+                        @endforeach
                     </div><small>Admin</small>
                 </div>
             </div>
-            <div class="profil">
-                Pengaturan akun
-            </div>
+            <a href="/dash/akun">
+                <div class="profil">
+                    Pengaturan akun
+                </div>
+            </a>
             <ul>
                 <li>
                     <img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a>
