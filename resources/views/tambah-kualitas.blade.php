@@ -10,6 +10,7 @@
     
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/materialize.min.css') }}">
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/jquery-confirm.css') }}">
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/animate.min.css') }}">
 	
 	<script type="text/javascript">
@@ -73,7 +74,7 @@
   		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
   		<br>
   		<h5>Lengkapi isian dibawah</h5>
-  		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/kualitas/add') }}">
+  		<form method="post" class="form-tambah" action="{{ url('/dash/kualitas/add') }}">
 
 			{{ csrf_field() }}
   			<div class="row">
@@ -81,12 +82,12 @@
 	  				<label for="warna">Warna</label>
   				</div>
   				<div class="input-field col s6">
-		  			<select name="cek_warna" required="">
+		  			<select id="cek_warna" name="cek_warna" class="required" required="">
 		  				<option value="">Pilih warna</option>
 		  				<option value="1">Putih</option>
-		  				<option value="2">Merah</option>
+		  				<option value="2">Kebiru-biruan</option>
 		  				<option value="3">Kuning</option>
-		  				<option value="4">Kebiru-biruan</option>
+		  				<option value="4">Merah</option>
 		  			</select>
   				</div>
   			</div>
@@ -95,10 +96,11 @@
 	  				<label for="warna">Bau</label>
   				</div>
   				<div class="input-field col s6">
-		  			<select name="cek_bau" required="">
+		  			<select id="cek_bau" name="cek_bau" class="required" required="">
 		  				<option value="">Pilih bau</option>
-		  				<option value="1">Busuk</option>
-		  				<option value="2">Asam</option>
+		  				<option value="1">Tidak berbau</option>
+		  				<option value="2">Busuk</option>
+		  				<option value="3">Asam</option>
 		  			</select>
   				</div>
   			</div>
@@ -107,18 +109,18 @@
 	  				<label for="warna">Rasa</label>
   				</div>
   				<div class="input-field col s6">
-		  			<select name="cek_rasa" required="">
+		  			<select id="cek_rasa" name="cek_rasa" class="required" required="">
 		  				<option value="">Pilih rasa</option>
-		  				<option value="1">Pahit</option>
+		  				<option value="1">Agak Manis</option>
 		  				<option value="2">Asam</option>
-		  				<option value="3">Agak Manis</option>
+		  				<option value="3">Pahit</option>
 		  			</select>
   				</div>
   			</div>
   			<br><br>
   			<div class="row">
   				<div class="col s8 offset-s2">
-	  				<input type="submit" class="btn btn-tosca z-depth-0 btn-block" value="simpan">
+	  				<input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
   				</div>
   			</div>
   		</form>
@@ -128,6 +130,7 @@
   	<script type="text/javascript" src="{{ URL::asset('assets/js/jquery-1.12.4.min.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('assets/js/wow.min.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('assets/js/materialize.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/jquery-confirm.js') }}"></script>
   	<script type="text/javascript">
 	  	$('.button-collapse').sideNav({
 	      menuWidth: 280, // Default is 240
@@ -138,6 +141,43 @@
   		);
 
 	    new WOW().init();
+	    
+	    $('.btn-confirm').on('click', function (event) {
+	    	event.preventDefault();
+        	
+        	if($('#cek_warna').val() == ""){
+				$.alert('Data tidak boleh kosong!');
+        	} else if($('#cek_bau').val() == ""){
+				$.alert('Data tidak boleh kosong!');
+        	} else if($('#cek_rasa').val() == ""){
+				$.alert('Data tidak boleh kosong!');
+        	} else{
+
+	        	$.confirm({
+	        	
+				    title: 'Simpan!',
+				    content: 'Data yang telah anda masukkan tidak dapat diubah. Periksa data terlebih dahulu',
+				    buttons: {
+				        confirm: {
+				            btnClass: 'btn-primary z-depth-0',
+				            text: 'Simpan',
+				            keys: ['enter'],
+				        	action: function () {
+				            	$('.form-tambah').submit();
+				            }
+				        },
+				        cancel: {
+				            btnClass: 'z-depth-0 btn-muted',
+				            text: 'Batal',
+				        	action: function () {
+				            	$.alert('Periksa data kembali');
+				            }
+				        }
+				    }
+				});
+        	}
+	    });
+
   	</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <link href="{{ URL::asset('assets/css/animate.min.css') }}" rel="stylesheet" type="text/css">
     <script type="text/javascript">
          window.onscroll = function () {
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
        }
     </script>
 </head>
@@ -93,6 +93,11 @@
         <table class="dashboard">
             <tr>
                 <td class="text-tosca" colspan="2">Bau</td>
+            </tr>
+            <tr>
+                <td width="100px;"><b>Tidak berbau</b></td>
+                <td width="10px">:</td>
+                <td>Normal</td>
             </tr>
             <tr>
                 <td width="100px;"><b>Busuk</b></td>

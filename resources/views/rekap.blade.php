@@ -14,7 +14,7 @@
 	
 	<script type="text/javascript">
   		window.onscroll = function () {
-		 window.scrollTo(0,0);
+			// window.scrollTo(0,0);
 		}
 	</script>
 </head>
@@ -70,8 +70,9 @@
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
-  		@if(Session::has('message'))
   		<div class="row">
+
+  		@if(Session::has('message'))
   			<div class="col s12">
   				<div class="alert">
 		  			{{ Session::get('message') }}
@@ -94,6 +95,8 @@
 	            		<a href="/dash/kualitas/detail/{{ $kualitas->id_cek }}">
 	            			@if ($kualitas->cek_warna === 1 && $kualitas->cek_rasa === 1 && $kualitas->cek_bau === 1)
 	            			<div class="chip bg-green uppercase">Baik</div>
+	            			@elseif ($kualitas->cek_warna === 1 && $kualitas->cek_rasa === 2 && $kualitas->cek_bau === 1)
+	            			<div class="chip grey lighten-2 grey-text text-darken-1 uppercase">Cukup</div>
 	            			@else
 	            			<div class="chip bg-red uppercase">Tidak Baik</div>
 	            			@endif
@@ -119,6 +122,8 @@
   		);
 
 	    new WOW().init();
+
+	    $('.alert').delay(3000).fadeOut(500)
   	</script>
 </body>
 </html>
