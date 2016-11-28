@@ -71,6 +71,16 @@
 
   	<div id="wrapper-d" class="wow fadeIn">
 
+  		@if(Session::has('message'))
+  		<div class="row">
+  			<div class="col s12">
+  				<div class="alert">
+		  			{{ Session::get('message') }}
+  				</div>
+  			</div>
+  		</div>
+  		@endif
+
     	@foreach($users as $user)
   		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/akun/ubahData') }}&{{ $user->id_user }}">
   			
@@ -100,7 +110,7 @@
   		</form>
   		@endforeach
 
-  		<br><br>
+  		<br>
   		<h5>Ubah Password</h5>
   		<form method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="{{ url('/dash/akun/ubahDataPassword') }}&{{ $user->id_user }}">
   			<!-- <div class="row mini">
@@ -127,6 +137,14 @@
   				</div>
   			</div>
   		</form>
+
+  		<hr class="md">
+  		<div class="row">
+				<div class="col s10 offset-s1">
+  					<a href="/login"><button class="btn red accent-1 z-depth-0 btn-block">Logout</button>
+				</div>
+			</div>
+
   	</div>
 
   	<!-- Javascript -->

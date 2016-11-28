@@ -24,7 +24,7 @@ class KualitasController extends Controller{
 
     public function tambahKualitas(Request $request){
     	Kualitas::create($request->all());
-    	return redirect('/dash/rekap');
+    	return redirect('/dash/rekap')->with('message', 'Data berhasil disimpan');
     }
 
     public function detailKualitas($id){

@@ -22,13 +22,13 @@ class UserController extends Controller{
         $user->nama = $request->nama;  
         $user->username = $request->username;  
         $user->save();
-        return redirect('/dash/akun');
+        return redirect('/dash/akun')->with('message', 'Data berhasil diperbarui');
     }
 
     public function ubahDataPassword(Request $request, $id){
         $user = User::find($id);
         $user->password = md5($request->password);  
         $user->save();
-        return redirect('/dash/akun');
+        return redirect('/dash/akun')->with('message', 'Password berhasil diperbarui');
     }
 }

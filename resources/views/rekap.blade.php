@@ -70,6 +70,16 @@
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
+  		@if(Session::has('message'))
+  		<div class="row">
+  			<div class="col s12">
+  				<div class="alert">
+		  			{{ Session::get('message') }}
+  				</div>
+  			</div>
+  		</div>
+  		@endif
+
   		<h5>November 2016</h5>
 
   		<table class="tbl-kualitas">
@@ -77,7 +87,7 @@
 
 	        <?php $no =0 ?>
 	        	@foreach($kualitass as $kualitas)
-	          	<tr class="wow fadeInUp" data-wow-delay=".{{ $no+=2 }}s">
+	          	<tr class="wow fadeInUp" data-wow-delay=".{{ $no++ }}s">
 	            	<td class="bold uppercase text-tosca">{{ date('l', strtotime($kualitas->created_at)) }},</td>
 	            	<td class="bold uppercase text-tosca">{{ date('d M Y', strtotime($kualitas->created_at)) }}</td>
 	            	<td>
