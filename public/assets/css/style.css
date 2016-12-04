@@ -28,6 +28,7 @@ body.dashboard h5{
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #aaa;
+	margin-top: 5px;
 	text-shadow: 1px 0 1px #fff;
 }
 img{
@@ -386,6 +387,14 @@ hr.md{
 }
 .jconfirm-content{
 	color: #999!important
+}
+
+.dash{
+	font-size: 12.5px;
+	letter-spacing: 0.5px;
+}
+table.dashboard hr{
+	
 }
 
 /*Override*/

@@ -71,19 +71,34 @@
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
-  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
-  		<br>
-  		<h5>Lengkapi isian dibawah</h5>
+		<div class="row">
+			<div class="col s12">
+		  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
+			</div>
+		</div>
+  		<!-- <br> -->
+  		<!-- <h5>Lengkapi isian dibawah</h5> -->
   		<form method="post" class="form-tambah" action="{{ url('/dash/kualitas/add') }}">
 
 			{{ csrf_field() }}
+			<div class="row">
+  				<div class="input-field col s6">
+	  				<label for="jumlah">Jumlah Susu</label>
+  				</div>
+  				<div class="input-field col s4">
+	  				<input id="jumlah" type="number" name="jumlahSusu">
+  				</div>
+  				<div class="input-field col s2">
+	  				<label for="jumlah">Liter</label>
+  				</div>
+  			</div>
   			<div class="row">
   				<div class="input-field col s6">
 	  				<label for="warna">Warna</label>
   				</div>
   				<div class="input-field col s6">
 		  			<select id="cek_warna" name="cek_warna" class="required" required="">
-		  				<option value="">Pilih warna</option>
+		  				<option value="">- Pilih warna -</option>
 		  				<option value="1">Putih</option>
 		  				<option value="2">Kebiru-biruan</option>
 		  				<option value="3">Kuning</option>
@@ -97,7 +112,7 @@
   				</div>
   				<div class="input-field col s6">
 		  			<select id="cek_bau" name="cek_bau" class="required" required="">
-		  				<option value="">Pilih bau</option>
+		  				<option value="">- Pilih bau -</option>
 		  				<option value="1">Tidak berbau</option>
 		  				<option value="2">Busuk</option>
 		  				<option value="3">Asam</option>
@@ -110,7 +125,7 @@
   				</div>
   				<div class="input-field col s6">
 		  			<select id="cek_rasa" name="cek_rasa" class="required" required="">
-		  				<option value="">Pilih rasa</option>
+		  				<option value="">- Pilih rasa -</option>
 		  				<option value="1">Agak Manis</option>
 		  				<option value="2">Asam</option>
 		  				<option value="3">Pahit</option>

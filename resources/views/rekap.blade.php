@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/materialize.min.css') }}">
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}">
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/animate.min.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/linearicons.css') }}">
 	
 	<script type="text/javascript">
   		window.onscroll = function () {
@@ -72,17 +73,24 @@
   	<div id="wrapper-d" class="wow fadeIn">
   		<div class="row">
 
-  		@if(Session::has('message'))
+	  		@if(Session::has('message'))
   			<div class="col s12">
   				<div class="alert">
 		  			{{ Session::get('message') }}
   				</div>
   			</div>
+	  		@endif
   		</div>
-  		@endif
 
-  		<h5>November 2016</h5>
-
+  		<div class="row">
+  			<div class="col s8">
+		  		<h5><i class="lnr lnr-calendar-full text-tosca"></i> November 2016</h5>
+  			</div>
+  			<div class="col s4">
+		  		<div class="chip amber accent-3 white-text uppercase">{{ $hasil }}</div>
+  			</div>
+  		</div>
+  		<hr>
   		<table class="tbl-kualitas">
 	        <tbody>
 
@@ -95,7 +103,7 @@
 	            		<a href="/dash/kualitas/detail/{{ $kualitas->id_cek }}">
 	            			@if ($kualitas->cek_warna === 1 && $kualitas->cek_rasa === 1 && $kualitas->cek_bau === 1)
 	            			<div class="chip bg-green uppercase">Baik</div>
-	            			@elseif ($kualitas->cek_warna === 1 && $kualitas->cek_rasa === 2 && $kualitas->cek_bau === 1)
+	            			@elseif ($kualitas->cek_warna === 2 && $kualitas->cek_rasa === 1 && $kualitas->cek_bau === 1)
 	            			<div class="chip grey lighten-2 grey-text text-darken-1 uppercase">Cukup</div>
 	            			@else
 	            			<div class="chip bg-red uppercase">Tidak Baik</div>

@@ -15,7 +15,7 @@
        }
     </script>
 </head>
-<body class="dashboard">
+<body class="dashboard dash">
     <!-- Menu -->
     <div class="side-nav" id="slide-out">
         <div class="rel" id="menu-wrapper">
@@ -66,7 +66,8 @@
         <h5>Tabel Kualitas Susu</h5>
         <table class="dashboard">
             <tr>
-                <td class="text-tosca" colspan="2">Warna</td>
+                <td class="text-tosca">Warna</td>
+                <td colspan="2"><hr></td>
             </tr>
             <tr>
                 <td width="100px;"><b>Putih</b></td>
@@ -89,10 +90,11 @@
                 <td>Kemungkinan darah</td>
             </tr>
         </table>
-        <hr>
+        <br>
         <table class="dashboard">
             <tr>
-                <td class="text-tosca" colspan="2">Bau</td>
+                <td class="text-tosca">Bau</td>
+                <td colspan="2"><hr></td>
             </tr>
             <tr>
                 <td width="100px;"><b>Tidak berbau</b></td>
@@ -110,10 +112,11 @@
                 <td>Terkontaminasi mikroba membusuk</td>
             </tr>
         </table>
-        <hr>
+        <br>
         <table class="dashboard">
             <tr>
-                <td class="text-tosca" colspan="2">Rasa</td>
+                <td class="text-tosca">Rasa</td>
+                <td colspan="2"><hr></td>
             </tr>
             <tr>
                 <td width="100px;"><b>Agak Manis</b></td>

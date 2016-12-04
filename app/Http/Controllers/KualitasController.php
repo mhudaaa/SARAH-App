@@ -14,7 +14,18 @@ class KualitasController extends Controller{
     public function index(){
         $users = User::admin()->get();
     	$kualitass = Kualitas::all();
-    	return view('rekap', compact('kualitass', 'users'));	
+        $jmlBaik = Kualitas::where('hasil', 1)->count();
+        $jmlCukup = Kualitas::where('hasil', 2)->count();
+        $jmlTidakBaik = Kualitas::where('hasil', 3)->count();
+
+        if ($jmlBaik > $jmlCukup && $jmlBaik > $jmlTidakBaik) {
+            $hasil = "Baik";
+        } elseif($jmlCukup > $jmlBaik && jmlCukup > $jmlTidakBaik){
+            $hasil = "Cukup";
+        } else{
+            $hasil = "Tidak Baik";
+        }
+    	return view('rekap', compact('kualitass', 'users', 'hasil'));	
     }
 
     public function formTambahKualitas(){

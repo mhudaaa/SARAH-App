@@ -125,11 +125,13 @@
     				<tr>
     					<td class="bold">Kualitas</td>
     					<td width="100%;">
-                          @if ($detailKualitas->cek_warna === 1 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
-                          <div class="chip bg-green uppercase">Baik</div>
-                          @else
-                          <div class="chip bg-red uppercase">Tidak Baik</div>
-                          @endif
+                            @if ($detailKualitas->cek_warna === 1 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
+                            <div class="chip bg-green uppercase">Baik</div>
+                            @elseif ($detailKualitas->cek_warna === 2 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
+                            <div class="chip grey lighten-2 grey-text text-darken-1 uppercase">Cukup</div>
+                            @else
+                            <div class="chip bg-red uppercase">Tidak Baik</div>
+                            @endif
                       </td>
     				</tr>
     			</table>

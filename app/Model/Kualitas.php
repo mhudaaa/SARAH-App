@@ -26,4 +26,15 @@ class Kualitas extends Model{
 	public function bau(){
 		return $this->belongsTo(Bau::class, 'cek_bau');
 	}
+
+	// Scope
+	public function scopeBaik($query) {
+		return $query->where('hasil', 1);
+	}
+	public function scopeCukup($query) {
+		return $query->where('hasil', 2);
+	}
+	public function scopeTidak($query) {
+		return $query->where('hasil', 3);
+	}
 }
