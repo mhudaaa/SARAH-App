@@ -39,10 +39,10 @@
                     <img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a>
                 </li>
                 <li>
-                    <img src="{{ URL::asset('assets/img/calendar.png') }}"> <a href="/dash/jadwal">Jadwal Makan</a>
+                    <img src="{{ URL::asset('assets/img/calendar.png') }}"> <a href="/dash/kualitas">Jadwal Makan</a>
                 </li>
                 <li>
-                    <img src="{{ URL::asset('assets/img/vaccine.png') }}"> <a href="/dash/vaksin">Vaksinasi</a>
+                    <img src="{{ URL::asset('assets/img/vaccine.png') }}"> <a href="/dash/kualitas">Vaksinasi</a>
                 </li>
                 <li>
                     <img src="{{ URL::asset('assets/img/milk.png') }}"> <a href="/dash/kualitas">Kualitas susu</a>
@@ -60,81 +60,52 @@
                     <a class="button-collapse" data-activates="slide-out" href="#"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
                 </div>
                 <div class="col s8 center-align title">
-                    BERANDA
+                    VAKSINASI
                 </div>
                 <div class="col s2 right-align">
-                    <a href="/dash/rekap"><img class="img-btn" src="{{ URL::asset('assets/img/milk-btn.png') }}"></a>
+                    <a href="/dash/vaksin/tambah"><img class="img-btn" src="{{ URL::asset('assets/img/plus.png') }}"></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="wow fadeIn" id="wrapper-d">
-        <h5>Tabel Kualitas Susu</h5>
+
+        @if(Session::has('message'))
+        <div class="col s12">
+            <div class="alert">
+                {{ Session::get('message') }}
+            </div>
+        </div>
+        @endif
+
+        <h5>Riwayat Vaksin</h5>
+
+        @foreach($vaksins as $vaksin)
         <table class="dashboard">
             <tr>
-                <td class="text-tosca">Warna</td>
-                <td colspan="2"><hr></td>
+                <td width="80px" class="text-tosca bold">{{ date('d M Y', strtotime($vaksin->created_at)) }}</td>
+                <td colspan="2"><hr class="mid"></td>
+                <td width="30px"><a href="/dash/vaksin/detail/{{ $vaksin->id_vaksin }}"><img class="edit" src="{{ URL::asset('assets/img/edit.png') }}"></a></td>
             </tr>
             <tr>
-                <td width="100px;"><b>Putih</b></td>
+                <td width="80px;"><b>Nama</b></td>
                 <td width="10px">:</td>
-                <td>Normal</td>
+                <td colspan="2">{{ $vaksin->nama_vaksin }}</td>
             </tr>
             <tr>
-                <td><b>Kebiru-biruan</b></td>
+                <td><b>Manfaat</b></td>
                 <td>:</td>
-                <td>Dicampur Air</td>
+                <td colspan="2">{{ $vaksin->manfaat }}</td>
             </tr>
             <tr>
-                <td><b>Kuning</b></td>
+                <td><b>Tanggal</b></td>
                 <td>:</td>
-                <td>Terdapat caroten/provitamin A</td>
-            </tr>
-            <tr>
-                <td><b>Merah</b></td>
-                <td>:</td>
-                <td>Kemungkinan darah</td>
+                <td colspan="2">{{ $vaksin->tgl_vaksin }}</td>
             </tr>
         </table>
         <br>
-        <table class="dashboard">
-            <tr>
-                <td class="text-tosca">Bau</td>
-                <td colspan="2"><hr></td>
-            </tr>
-            <tr>
-                <td width="100px;"><b>Tidak berbau</b></td>
-                <td width="10px">:</td>
-                <td>Normal</td>
-            </tr>
-            <tr>
-                <td width="100px;"><b>Busuk</b></td>
-                <td width="10px">:</td>
-                <td>Mastitis (bakteri)</td>
-            </tr>
-            <tr>
-                <td><b>Asam</b></td>
-                <td>:</td>
-                <td>Terkontaminasi mikroba membusuk</td>
-            </tr>
-        </table>
-        <br>
-        <table class="dashboard">
-            <tr>
-                <td class="text-tosca">Rasa</td>
-                <td colspan="2"><hr></td>
-            </tr>
-            <tr>
-                <td width="100px;"><b>Agak Manis</b></td>
-                <td width="10px">:</td>
-                <td>Normal</td>
-            </tr>
-            <tr>
-                <td><b>Asam</b></td>
-                <td>:</td>
-                <td>Terkontaminasi mikroba asam</td>
-            </tr>
-        </table>
+        @endforeach
+        
     </div><!-- Javascript -->
     <script src="{{ URL::asset('assets/js/jquery-1.12.4.min.js') }}" type="text/javascript"></script> 
     <script src="{{ URL::asset('assets/js/wow.min.js') }}" type="text/javascript"></script> 
@@ -149,6 +120,7 @@
          );
 
          new WOW().init();
+         $('.alert').delay(3000).fadeOut(500)
     </script>
 </body>
 </html>

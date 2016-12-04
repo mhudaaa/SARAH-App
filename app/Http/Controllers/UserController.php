@@ -12,7 +12,7 @@ class UserController extends Controller{
         return view('akun', compact('users'));
     }
 
-     public function dash(){
+    public function dash(){
         $users = User::admin()->get();
         return view('dashboard', compact('users'));
     }

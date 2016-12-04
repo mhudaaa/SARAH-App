@@ -41,10 +41,22 @@
                 </div>
             </a>
 		  	<ul>
-		   		<li><img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a></li>
-	          	<li><img src="{{ URL::asset('assets/img/milk.png') }}"> <a href="/dash/kualitas">Kualitas susu</a></li>
-	          	<li><img src="{{ URL::asset('assets/img/note.png') }}"> <a href="/dash/rekap">Rekap</a></li>
-		  	</ul>
+                <li>
+                    <img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a>
+                </li>
+                <li>
+                    <img src="{{ URL::asset('assets/img/calendar.png') }}"> <a href="/dash/jadwal">Jadwal Makan</a>
+                </li>
+                <li>
+                    <img src="{{ URL::asset('assets/img/vaccine.png') }}"> <a href="/dash/vaksin">Vaksinasi</a>
+                </li>
+                <li>
+                    <img src="{{ URL::asset('assets/img/milk.png') }}"> <a href="/dash/kualitas">Kualitas susu</a>
+                </li>
+                <li>
+                    <img src="{{ URL::asset('assets/img/note.png') }}"> <a href="/dash/rekap">Rekap</a>
+                </li>
+            </ul>
 
 		  	<!-- <div class="copy">
 		  		&copy;

@@ -397,6 +397,29 @@ table.dashboard hr{
 	
 }
 
+hr.mid{
+	margin-top: 6px;
+}
+.picker__month-display, .picker__year-display{
+	font-size: 1rem;
+}
+.picker__frame{
+	min-width: 150px!important;
+	width: 90%!important;
+}
+.picker__select--month.browser-default, .picker__select--year.browser-default{
+	display: inline!important;
+}
+textarea{
+	border: 0;
+	border-bottom: 1px solid #ddd!important;
+}
+img.edit{
+	margin-left: 10px;
+	margin-top: -4px;
+	padding-right: 10px!important;
+}
+
 /*Override*/
 .row.mini input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
 	height: 2rem;

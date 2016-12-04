@@ -9,8 +9,9 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
     
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/materialize.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/animate.min.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/jquery-confirm.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/animate.min.css') }}">
 	
 	<script type="text/javascript">
   		window.onscroll = function () {
@@ -29,9 +30,9 @@
   					<img class="photo" src="{{ URL::asset('assets/img/ganteng.jpg') }}">
   				</div>
   				<div class="col s7">
-                    @foreach($users as $user) 
+  					@foreach($users as $user)
   					<div class="profile-name text-white">{{ $user->nama }}</div>
-                    @endforeach
+  					@endforeach
   					<small>Admin</small>
   				</div>
   			</div>
@@ -40,7 +41,7 @@
                     Pengaturan akun
                 </div>
             </a>
-		  	   <ul>
+		  	<ul>
                 <li>
                     <img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a>
                 </li>
@@ -69,99 +70,68 @@
   		<div id="wrapper-d" class="no-margin">
 	  		<div class="row">
 	  			<div class="col s2">
-            <a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
-          </div>
+	  				<a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
+	  			</div>
 	  			<div class="col s8 center-align title uppercase">
-	  				Detail Kualitas
+	  				TAMBAH VAKSIN
 	  			</div>
 	  			<div class="col s2 right-align">
-            <a href="/dash/rekap"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
-          </div>
+	  				<a href="/dash/vaksin" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
+	  			</div>
 	  		</div>
   		</div>
   	</div>
 
   	<div id="wrapper-d" class="wow fadeIn">
-  		<div class="row">
-  			<div class="col s6">
-		  		<h5>Tanggal Periksa</h5>
-  			</div>
-  			<div class="col s6 right-align">
-				<h5 class="bold text-tosca">{{ date('d M Y', strtotime($detailKualitas->created_at)) }}</h5>
-  			</div>
-  		</div>
 
-  		<div class="row">
-  			<div class="col s4">
-  				<h5>Detail</h5>
-  			</div>
-  			<div class="col s8">
-  				<hr>
-  			</div>
-  		</div>
-
-  		<div class="row">
-  			<div class="col s12">
-  				<table class="tbl-detail">
-  					<tr>
-  						<td class="bold">Warna</td>
-  						<td>:</td>
-  						<td class="text-tosca">{{ $detailKualitas->warna->nama }}</td>
-  					</tr>
-  					<tr>
-  						<td class="bold">Bau</td>
-  						<td>:</td>
-  						<td class="text-tosca">{{ $detailKualitas->bau->nama }}</td>
-  					</tr>
-  					<tr>
-  						<td class="bold">Rasa</td>
-  						<td>:</td>
-  						<td class="text-tosca">{{ $detailKualitas->rasa->nama }}</td>
-  					</tr>
-  				</table>
-  			</div>
-  		</div>
-
-  		<br>
-  		<div class="row">
-  			<div class="col s4">
-  				<h5>Kesimpulan</h5>
-  			</div>
-  			<div class="col s8">
-  				<hr>
-  			</div>
-  		</div>
 		<div class="row">
 			<div class="col s12">
-    			<table class="tbl-detail">
-    				<tr>
-    					<td class="bold">Kualitas</td>
-    					<td width="100%;">
-                            @if ($detailKualitas->cek_warna === 1 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
-                            <div class="chip bg-green uppercase">Baik</div>
-                            @elseif ($detailKualitas->cek_warna === 2 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
-                            <div class="chip grey lighten-2 grey-text text-darken-1 uppercase">Cukup</div>
-                            @else
-                            <div class="chip bg-red uppercase">Tidak Baik</div>
-                            @endif
-                      </td>
-    				</tr>
-    			</table>
+		  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
 			</div>
 		</div>
+  		<!-- <br> -->
+  		<!-- <h5>Lengkapi isian dibawah</h5> -->
+  		<form method="post" class="form-tambah" action="{{ url('/dash/vaksin/add') }}">
 
-		<br>
-		<div class="row">
-			<div class="col s12">
-				<a href="/dash/rekap"><button class="btn btn-tosca z-depth-0">Kembali</button></a>
-			</div>
-		</div>
+			{{ csrf_field() }}
+			<div class="row">
+  				<div class="input-field col s3">
+	  				<label for="nama">Nama</label>
+  				</div>
+  				<div class="input-field col s9">
+	  				<input id="nama" type="text" name="nama_vaksin" maxlength="50">
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="input-field col s3">
+	  				<label for="nama">Manfaat</label>
+  				</div>
+  				<div class="input-field col s9">
+	  				<textarea name="manfaat" class="materialize-textarea" maxlength="100"></textarea>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="input-field col s3">
+	  				<label for="tanggal">Tanggal</label>
+  				</div>
+  				<div class="input-field col s9">
+	  				<input id="tanggal" type="date" class="datepicker" name="tgl_vaksin">
+  				</div>
+  			</div>
+  			<br><br>
+  			<div class="row">
+  				<div class="col s8 offset-s2">
+	  				<input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
+  				</div>
+  			</div>
+  		</form>
   	</div>
 
   	<!-- Javascript -->
-    <script type="text/javascript" src="{{ URL::asset('assets/js/jquery-1.12.4.min.js') }}"></script>   
+  	<script type="text/javascript" src="{{ URL::asset('assets/js/jquery-1.12.4.min.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('assets/js/wow.min.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('assets/js/materialize.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/jquery-confirm.js') }}"></script>
   	<script type="text/javascript">
 	  	$('.button-collapse').sideNav({
 	      menuWidth: 280, // Default is 240
@@ -171,7 +141,13 @@
 	    }
   		);
 
+	  	$('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 5 // Creates a dropdown of 15 years to control year
+		});
+
 	    new WOW().init();
+	    
   	</script>
 </body>
 </html>
