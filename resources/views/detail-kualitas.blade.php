@@ -104,6 +104,11 @@
   			<div class="col s12">
   				<table class="tbl-detail">
   					<tr>
+                        <td class="bold">Jumlah</td>
+                        <td>:</td>
+                        <td class="text-tosca">{{ $detailKualitas->jumlah_susu }} Liter</td>
+                    </tr>
+                    <tr>
   						<td class="bold">Warna</td>
   						<td>:</td>
   						<td class="text-tosca">{{ $detailKualitas->warna->nama }}</td>
@@ -118,6 +123,11 @@
   						<td>:</td>
   						<td class="text-tosca">{{ $detailKualitas->rasa->nama }}</td>
   					</tr>
+                    <tr>
+                        <td class="bold">pH</td>
+                        <td>:</td>
+                        <td class="text-tosca">{{ $detailKualitas->pH }}</td>
+                    </tr>
   				</table>
   			</div>
   		</div>
@@ -137,9 +147,9 @@
     				<tr>
     					<td class="bold">Kualitas</td>
     					<td width="100%;">
-                            @if ($detailKualitas->cek_warna === 1 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
+                            @if ($detailKualitas->hasil === 1)
                             <div class="chip bg-green uppercase">Baik</div>
-                            @elseif ($detailKualitas->cek_warna === 2 && $detailKualitas->cek_rasa === 1 && $detailKualitas->cek_bau === 1)
+                            @elseif ($detailKualitas->hasil === 2)
                             <div class="chip grey lighten-2 grey-text text-darken-1 uppercase">Cukup</div>
                             @else
                             <div class="chip bg-red uppercase">Tidak Baik</div>

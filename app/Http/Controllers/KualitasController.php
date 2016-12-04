@@ -34,7 +34,31 @@ class KualitasController extends Controller{
     }
 
     public function tambahKualitas(Request $request){
-    	Kualitas::create($request->all());
+    	// Kualitas::create($request->all());
+
+        $warna = $request->cek_warna;
+        $rasa = $request->cek_rasa;
+        $bau = $request->cek_bau;
+        $pH = $request->pH;
+
+        if ($warna == 1 && $rasa == 1 && $bau == 1  && $pH == "6.3" || $pH == "6.4" || $pH == "6.5" || $pH == "6.6" || $pH == "6.7" || $pH == "6.8") {
+            $hasil = 1;
+        } elseif($warna == 2 && $rasa == 1 && $bau == 1  && $pH == "6.3" || $pH == "6.4" || $pH == "6.5" || $pH == "6.6" || $pH == "6.7" || $pH == "6.8"){
+            $hasil = 2;
+        } else{
+            $hasil = 3;
+        }
+
+        $input = ([
+            'jumlah_susu' => $request->jumlah_susu,
+            'cek_bau' => $bau,
+            'cek_rasa' => $rasa,
+            'cek_warna' => $warna,
+            'hasil' => $hasil,
+            'pH' => $pH
+        ]);
+
+        Kualitas::create($input);
     	return redirect('/dash/rekap')->with('message', 'Data berhasil disimpan');
     }
 

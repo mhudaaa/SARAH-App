@@ -98,10 +98,18 @@
 	  				<label for="jumlah">Jumlah Susu</label>
   				</div>
   				<div class="input-field col s4">
-	  				<input id="jumlah" type="number" name="jumlahSusu">
+	  				<input id="jumlah" type="number" name="jumlah_susu" required="">
   				</div>
   				<div class="input-field col s2">
 	  				<label for="jumlah">Liter</label>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="input-field col s6">
+	  				<label for="ph">pH</label>
+  				</div>
+  				<div class="input-field col s6">
+	  				<input id="jumlah" type="text" name="pH" required="">
   				</div>
   			</div>
   			<div class="row">

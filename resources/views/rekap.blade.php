@@ -95,10 +95,10 @@
   		</div>
 
   		<div class="row">
-  			<div class="col s8">
-		  		<h5><i class="lnr lnr-calendar-full text-tosca"></i> November 2016</h5>
+  			<div class="col s7">
+		  		<h5><i class="lnr lnr-calendar-full text-tosca"></i> December 2016</h5>
   			</div>
-  			<div class="col s4">
+  			<div class="col s5">
 		  		<div class="chip amber accent-3 white-text uppercase">{{ $hasil }}</div>
   			</div>
   		</div>
@@ -113,9 +113,9 @@
 	            	<td class="bold uppercase text-tosca">{{ date('d M Y', strtotime($kualitas->created_at)) }}</td>
 	            	<td>
 	            		<a href="/dash/kualitas/detail/{{ $kualitas->id_cek }}">
-	            			@if ($kualitas->cek_warna === 1 && $kualitas->cek_rasa === 1 && $kualitas->cek_bau === 1)
+	            			@if ($kualitas->hasil === 1)
 	            			<div class="chip bg-green uppercase">Baik</div>
-	            			@elseif ($kualitas->cek_warna === 2 && $kualitas->cek_rasa === 1 && $kualitas->cek_bau === 1)
+	            			@elseif ($kualitas->hasil === 2)
 	            			<div class="chip grey lighten-2 grey-text text-darken-1 uppercase">Cukup</div>
 	            			@else
 	            			<div class="chip bg-red uppercase">Tidak Baik</div>
