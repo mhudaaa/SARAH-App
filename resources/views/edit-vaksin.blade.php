@@ -119,6 +119,17 @@
                     <!-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}"> -->
   				</div>
   			</div>
+             <div class="row">
+                <div class="input-field col s3">
+                    <label for="jumlah">Jumlah</label>
+                </div>
+                <div class="input-field col s8">
+                    <input id="jumlah" type="text" name="jml_vaksin" value="{{ $vaksin->jml_vaksin }}">
+                </div>
+                <div class="input-field col s1">
+                    <label for="jumlah">ml</label>
+                </div>
+            </div>
   			<br><br>
   			<div class="row">
   				<div class="col s8 offset-s2">

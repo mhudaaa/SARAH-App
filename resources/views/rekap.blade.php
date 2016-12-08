@@ -99,7 +99,13 @@
 		  		<h5><i class="lnr lnr-calendar-full text-tosca"></i> December 2016</h5>
   			</div>
   			<div class="col s5">
-		  		<div class="chip amber accent-3 white-text uppercase">{{ $hasil }}</div>
+                @if($hasil == "Baik")
+                <a href="#baik"><div class="chip amber accent-3 white-text uppercase">{{ $hasil }}</div></a>
+                @elseif($hasil == "Cukup")
+                <a href="#cukup"><div class="chip amber accent-3 white-text uppercase">{{ $hasil }}</div></a>
+                @else
+                <a href="#tidak-baik"><div class="chip amber accent-3 white-text uppercase">{{ $hasil }}</div></a>
+                @endif
   			</div>
   		</div>
   		<hr>
@@ -128,6 +134,43 @@
       	</table>
   	</div>
 
+    <!-- Modal -->
+    <!-- Baik -->
+    <div id="baik" class="modal">
+        <div class="modal-content">
+            <h5 class="text-tosca">Kualitas Baik</h5>
+            <hr>
+            <p class="grey-text">Kualitas susu bulan ini sudah baik.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+    </div>
+
+    <!-- Cukup -->
+    <div id="cukup" class="modal">
+        <div class="modal-content">
+            <h5 class="yellow-text text-darken-3">Kualitas Cukup</h5>
+            <hr>
+            <p class="grey-text">Kualitas susu bulan ini belum cukup baik. Sebaiknya ...</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+    </div>
+
+    <!-- Kurang Baik -->
+    <div id="tidak-baik" class="modal">
+        <div class="modal-content">
+            <h5 class="red-text">Kualitas Tidak Baik</h5>
+            <hr>
+            <p class="grey-text">Kualitas susu bulan ini tidak baik. Sebaiknya ...</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+    </div>
+
   	<!-- Javascript -->
   	<script type="text/javascript" src="{{ URL::asset('assets/js/jquery-1.12.4.min.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('assets/js/wow.min.js') }}"></script>   
@@ -143,7 +186,12 @@
 
 	    new WOW().init();
 
-	    $('.alert').delay(3000).fadeOut(500)
+	    $('.alert').delay(3000).fadeOut(500);
+
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+          });
   	</script>
 </body>
 </html>

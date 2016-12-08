@@ -73,10 +73,10 @@
 	  				<a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
 	  			</div>
 	  			<div class="col s8 center-align title uppercase">
-	  				TAMBAH VAKSIN
+	  				JADWAL PAKAN
 	  			</div>
 	  			<div class="col s2 right-align">
-	  				<a href="/dash/vaksin" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
+	  				<a href="/dash/jadwal/tambah" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/plus.png') }}"></a>
 	  			</div>
 	  		</div>
   		</div>
@@ -85,57 +85,15 @@
   	<div id="wrapper-d" class="wow fadeIn">
 
 		<div class="row">
-			<div class="col s12">
+			<div class="col s6">
 		  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
 			</div>
+            <div class="col s6 right-align">
+                <h5>20&#176;C</h5>
+            </div>
 		</div>
   		<!-- <br> -->
   		<!-- <h5>Lengkapi isian dibawah</h5> -->
-  		<form method="post" class="form-tambah" action="{{ url('/dash/vaksin/add') }}">
-
-			{{ csrf_field() }}
-			<div class="row">
-  				<div class="input-field col s3">
-	  				<label for="nama">Nama</label>
-  				</div>
-  				<div class="input-field col s9">
-	  				<input id="nama" type="text" name="nama_vaksin" maxlength="50">
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="input-field col s3">
-	  				<label for="nama">Manfaat</label>
-  				</div>
-  				<div class="input-field col s9">
-	  				<textarea name="manfaat" class="materialize-textarea" maxlength="100"></textarea>
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="input-field col s3">
-	  				<label for="tanggal">Tanggal</label>
-  				</div>
-  				<div class="input-field col s9">
-	  				<input id="tanggal" type="date" class="datepicker" name="tgl_vaksin">
-  				</div>
-  			</div>
-            <div class="row">
-                <div class="input-field col s3">
-                    <label for="jumlah">Jumlah</label>
-                </div>
-                <div class="input-field col s8">
-                    <input id="jumlah" type="text" name="jml_vaksin">
-                </div>
-                <div class="input-field col s1">
-                    <label for="jumlah">ml</label>
-                </div>
-            </div>
-  			<br><br>
-  			<div class="row">
-  				<div class="col s8 offset-s2">
-	  				<input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
-  				</div>
-  			</div>
-  		</form>
   	</div>
 
   	<!-- Javascript -->

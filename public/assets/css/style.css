@@ -428,5 +428,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	margin: 0;
 }
 
-
-
+.modal{
+	letter-spacing: 0;
+}

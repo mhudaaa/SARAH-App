@@ -102,6 +102,11 @@
                 <td>:</td>
                 <td colspan="2">{{ $vaksin->tgl_vaksin }}</td>
             </tr>
+            <tr>
+                <td><b>Jumlah</b></td>
+                <td>:</td>
+                <td colspan="2">{{ $vaksin->jml_vaksin }} ml</td>
+            </tr>
         </table>
         <br>
         @endforeach

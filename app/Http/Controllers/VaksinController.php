@@ -29,6 +29,7 @@ class VaksinController extends Controller{
         $vaksin->nama_vaksin = $request->nama_vaksin;  
         $vaksin->manfaat     = $request->manfaat;  
         $vaksin->tgl_vaksin  = $request->tgl_vaksin;  
+        $vaksin->jml_vaksin  = $request->jml_vaksin;  
         $vaksin->save();
         return redirect('/dash/vaksin')->with('message', 'Data berhasil diperbarui');
     }

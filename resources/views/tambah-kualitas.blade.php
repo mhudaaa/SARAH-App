@@ -114,6 +114,17 @@
   			</div>
   			<div class="row">
   				<div class="input-field col s6">
+	  				<label for="protein">Protein</label>
+  				</div>
+  				<div class="input-field col s5">
+	  				<input id="protein" type="number" name="jumlah_protein" required="">
+  				</div>
+  				<div class="input-field col s1">
+	  				<label for="jumlah">%</label>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="input-field col s6">
 	  				<label for="warna">Warna</label>
   				</div>
   				<div class="input-field col s6">

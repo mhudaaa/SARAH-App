@@ -9,7 +9,7 @@ class Vaksin extends Model{
     protected $primaryKey = 'id_vaksin';
 
     protected $fillable = [
-		'nama_vaksin', 'manfaat', 'tgl_vaksin'
+		'nama_vaksin', 'manfaat', 'tgl_vaksin', 'jml_vaksin'
 	];
 
 	protected $hidden = [
