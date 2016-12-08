@@ -27,7 +27,7 @@ class Kualitas extends Model{
 		return $this->belongsTo(Bau::class, 'cek_bau');
 	}
 
-	// Scope
+	// Scope / kondisi
 	public function scopeBaik($query) {
 		return $query->where('hasil', 1);
 	}
