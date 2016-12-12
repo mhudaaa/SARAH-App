@@ -73,7 +73,7 @@
 	  				<a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
 	  			</div>
 	  			<div class="col s8 center-align title uppercase">
-	  				TAMBAH VAKSIN
+	  				UBAH DATA VAKSIN
 	  			</div>
 	  			<div class="col s2 right-align">
 	  				<a href="/dash/vaksin" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
