@@ -19,22 +19,34 @@ Route::get('/login', function () {
     return view('login');
 });
 
+// Dashboard
 Route::get('/dash', 'UserController@dash');
 
-Route::get('/dash/kualitas', 'KualitasController@formTambahKualitas');
-
+// Akun
 Route::get('/dash/akun', function () {
     return view('akun');
 });
-
-
-Route::get('/dash/kualitas/detail/{id}', 'KualitasController@detailKualitas');
 Route::get('/dash/akun', 'UserController@detailUser');
-
-
-Route::get('/dash/rekap', 'KualitasController@index');
-
-Route::post('/dash/kualitas/add', 'KualitasController@tambahKualitas');
-
 Route::post('/dash/akun/ubahData&{id}', 'UserController@ubahDataAkun');
 Route::post('/dash/akun/ubahDataPassword&{id}', 'UserController@ubahDataPassword');
+
+// Vaksin
+Route::get('/dash/vaksin', 'VaksinController@index');
+Route::get('/dash/vaksin/tambah', 'VaksinController@formTambahVaksin');
+Route::post('/dash/vaksin/add', 'VaksinController@tambahVaksin');
+Route::get('/dash/vaksin/detail/{id}', 'VaksinController@detailVaksin');
+Route::post('/dash/vaksin/ubahData&{id}', 'VaksinController@ubahDataVaksin');
+
+// Kualitas Susu
+Route::get('/dash/rekap', 'KualitasController@index');
+Route::get('/dash/kualitas', 'KualitasController@formTambahKualitas');
+Route::post('/dash/kualitas/add', 'KualitasController@tambahKualitas');
+Route::get('/dash/kualitas/detail/{id}', 'KualitasController@detailKualitas');
+
+// Jadwal
+Route::get('/dash/jadwal', 'JadwalController@index');
+Route::get('/dash/jadwal/ubah', 'JadwalController@formUbahJadwal');
+Route::post('/dash/jadwal/ubahPagi', 'JadwalController@ubahPakanPagi');
+Route::post('/dash/jadwal/ubahSiang', 'JadwalController@ubahPakanSiang');
+
+

@@ -39,7 +39,7 @@
                     <img src="{{ URL::asset('assets/img/home.png') }}"> <a href="/dash">Beranda</a>
                 </li>
                 <li>
-                    <img src="{{ URL::asset('assets/img/calendar.png') }}"> <a href="/dash/kualitas">Jadwal Makan</a>
+                    <img src="{{ URL::asset('assets/img/calendar.png') }}"> <a href="/dash/kualitas">Pakan</a>
                 </li>
                 <li>
                     <img src="{{ URL::asset('assets/img/vaccine.png') }}"> <a href="/dash/kualitas">Vaksinasi</a>

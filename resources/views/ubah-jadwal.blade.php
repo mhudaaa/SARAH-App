@@ -15,7 +15,7 @@
 	
 	<script type="text/javascript">
   		window.onscroll = function () {
-		 window.scrollTo(0,0);
+		 // window.scrollTo(0,0);
 		}
 	</script>
 </head>
@@ -73,10 +73,10 @@
 	  				<a href="#" data-activates="slide-out" class="button-collapse"><img class="img-btn menu" src="{{ URL::asset('assets/img/menu-btn.png') }}"></a>
 	  			</div>
 	  			<div class="col s8 center-align title uppercase">
-	  				UBAH DATA VAKSIN
+	  				UBAH JADWAL
 	  			</div>
 	  			<div class="col s2 right-align">
-	  				<a href="/dash/vaksin" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
+	  				<a href="/dash/jadwal" data-activates="slide-out"><img class="img-btn-sm" src="{{ URL::asset('assets/img/delete.png') }}"></a>
 	  			</div>
 	  		</div>
   		</div>
@@ -84,59 +84,95 @@
 
   	<div id="wrapper-d" class="wow fadeIn">
 
-		<div class="row">
-			<div class="col s12">
-		  		<h5 class="bold text-tosca">{{ date('d M Y') }}</h5>
-			</div>
-		</div>
   		<!-- <br> -->
   		<!-- <h5>Lengkapi isian dibawah</h5> -->
-  		<form method="post" class="form-tambah" action="{{ url('/dash/vaksin/ubahData') }}&{{ $vaksin->id_vaksin }}">
+  		<form method="post" class="form-tambah" action="{{ url('/dash/jadwal/ubahPagi') }}">
 
 			{{ csrf_field() }}
-			<div class="row">
-  				<div class="input-field col s3">
-	  				<label for="nama">Nama</label>
-  				</div>
-  				<div class="input-field col s9">
-	  				<input id="nama" type="text" name="nama_vaksin" value="{{ $vaksin->nama_vaksin }}" maxlength="50">
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="input-field col s3">
-	  				<label for="nama">Manfaat</label>
-  				</div>
-  				<div class="input-field col s9">
-	  				<textarea name="manfaat" class="materialize-textarea" maxlength="100">{{ $vaksin->manfaat }}</textarea>
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="input-field col s3">
-	  				<label for="tanggal">Tanggal</label>
-  				</div>
-  				<div class="input-field col s9">
-	  				<input id="tanggal" type="date" class="datepicker" name="tgl_vaksin" value="{{ $vaksin->tgl_vaksin }}">
-                    <!-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}"> -->
-  				</div>
-  			</div>
-             <div class="row">
-                <div class="input-field col s3">
-                    <label for="jumlah">Jumlah</label>
-                </div>
-                <div class="input-field col s8">
-                    <input id="jumlah" type="text" name="jml_vaksin" value="{{ $vaksin->jml_vaksin }}">
-                </div>
-                <div class="input-field col s1">
-                    <label for="jumlah">ml</label>
+            
+            @foreach($pagi as $p)
+            <div class="row mini">
+  				<div class="input-field col s12">
+                    <label class="text-tosca bold">{{ $p->waktu_pakan }}</label><br>
                 </div>
             </div>
-  			<br><br>
-  			<div class="row">
-  				<div class="col s8 offset-s2">
-	  				<input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
-  				</div>
-  			</div>
+
+            <div class="row mini">
+                <div class="input-field col s6">
+                    <label for="Jumlah">Jumlah</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="Jumlah" class="center-align" type="number" value="{{ $p->jml_pakan }}" name="jml_pakan">
+                </div>
+                <div class="input-field col s2">
+                    <label for="Jumlah">Kg</label>
+                </div>
+            </div>
+            <div class="row mini">
+                <div class="input-field col s6">
+                    <label for="air">Air</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="air" class="center-align" type="number" value="{{ $p->jml_air }}" name="jml_air">
+                </div>
+                <div class="input-field col s2">
+                    <label for="air">Liter</label>
+                </div>
+            </div>
+            <br>
+             <div class="row mini">
+                <div class="col s8 offset-s2">
+                    <input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
+                </div>
+            </div>
+            @endforeach
   		</form>
+
+        <br>
+        <hr>
+        <br>
+
+        <form method="post" class="form-tambah" action="{{ url('/dash/jadwal/ubahSiang') }}">
+
+            {{ csrf_field() }}
+            
+            @foreach($siang as $s)
+            <div class="row mini">
+                <div class="input-field col s12">
+                    <label class="text-tosca bold">{{ $s->waktu_pakan }}</label><br>
+                </div>
+            </div>
+
+            <div class="row mini">
+                <div class="input-field col s6">
+                    <label for="Jumlah">Jumlah</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="Jumlah" class="center-align" type="number" value="{{ $s->jml_pakan }}" name="jml_pakan">
+                </div>
+                <div class="input-field col s2">
+                    <label for="Jumlah">Kg</label>
+                </div>
+            </div>
+            <div class="row mini">
+                <div class="input-field col s6">
+                    <label for="air">Air</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="air" class="center-align" type="number" value="{{ $s->jml_air }}" name="jml_air">
+                </div>
+                <div class="input-field col s2">
+                    <label for="air">Liter</label>
+                </div>
+            </div>
+            <br>
+             <div class="row mini">
+                <div class="col s8 offset-s2">
+                    <input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
+                </div>
+            </div>
+            @endforeach
+        </form>
   	</div>
 
   	<!-- Javascript -->
