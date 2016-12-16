@@ -9,4 +9,3 @@ Anggota Kelompok :
 - Muhammad Huda M.
 - Laily Indah Palupi
 - Vicki Ali Yuniansa
-- Noval Ektenda Firmansyah
