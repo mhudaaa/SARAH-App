@@ -30,7 +30,7 @@
 					<h1 class="wow fadeInUp" data-wow-delay="1s">Sarah</h1>
 					<h6 class="wow fadeInUp" data-wow-delay="1.3s">Sistem Penentu Kualitas<br>Susu Sapi Perah</h6>
 					<div class="lg-divider"></div>
-					<a href="/login"><button class="btn btn-tosca text-uppercase btn-block btn-lg wow zoomIn" data-wow-delay="1.8s">Login</button></a>
+					<a href="/dash"><button class="btn btn-tosca text-uppercase btn-block btn-lg wow zoomIn" data-wow-delay="1.8s">Login</button></a>
 					</div>
 				</div>
 			</div>

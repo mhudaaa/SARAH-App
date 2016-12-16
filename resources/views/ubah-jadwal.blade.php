@@ -102,7 +102,7 @@
                     <label for="Jumlah">Jumlah</label>
                 </div>
                 <div class="input-field col s4">
-                    <input id="Jumlah" class="center-align" type="number" value="{{ $p->jml_pakan }}" name="jml_pakan">
+                    <input id="Jumlah" class="center-align" type="number" value="{{ $p->jml_pakan }}" name="jml_pakan" required="">
                 </div>
                 <div class="input-field col s2">
                     <label for="Jumlah">Kg</label>
@@ -113,7 +113,7 @@
                     <label for="air">Air</label>
                 </div>
                 <div class="input-field col s4">
-                    <input id="air" class="center-align" type="number" value="{{ $p->jml_air }}" name="jml_air">
+                    <input id="air" class="center-align" type="number" value="{{ $p->jml_air }}" name="jml_air" required="">
                 </div>
                 <div class="input-field col s2">
                     <label for="air">Liter</label>
@@ -122,7 +122,7 @@
             <br>
              <div class="row mini">
                 <div class="col s8 offset-s2">
-                    <input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
+                    <input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan" required="">
                 </div>
             </div>
             @endforeach

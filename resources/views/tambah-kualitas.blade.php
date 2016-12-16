@@ -117,7 +117,7 @@
 	  				<label for="protein">Protein</label>
   				</div>
   				<div class="input-field col s5">
-	  				<input id="protein" type="number" name="jumlah_protein" required="">
+	  				<input id="protein" type="number" name="protein" required="">
   				</div>
   				<div class="input-field col s1">
 	  				<label for="jumlah">%</label>
@@ -166,6 +166,7 @@
   			<br><br>
   			<div class="row">
   				<div class="col s8 offset-s2">
+            <input type="hidden" name="check" value="0">
 	  				<input type="submit" class="btn btn-confirm btn-tosca z-depth-0 btn-block" value="simpan">
   				</div>
   			</div>

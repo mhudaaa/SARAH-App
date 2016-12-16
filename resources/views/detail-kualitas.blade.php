@@ -123,11 +123,16 @@
   						<td>:</td>
   						<td class="text-tosca">{{ $detailKualitas->rasa->nama }}</td>
   					</tr>
-                    <tr>
-                        <td class="bold">pH</td>
-                        <td>:</td>
-                        <td class="text-tosca">{{ $detailKualitas->pH }}</td>
-                    </tr>
+            <tr>
+                <td class="bold">pH</td>
+                <td>:</td>
+                <td class="text-tosca">{{ $detailKualitas->pH }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Protein</td>
+                <td>:</td>
+                <td class="text-tosca">{{ $detailKualitas->protein }} %</td>
+            </tr>
   				</table>
   			</div>
   		</div>

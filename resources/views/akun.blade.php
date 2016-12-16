@@ -153,7 +153,7 @@
   		<hr class="md">
   		<div class="row">
 			<div class="col s12">
-					<a href="/login"><div class="red-text center-align">Logout</div>
+					<a href="/"><div class="red-text center-align">Logout</div>
 			</div>
 		</div>
 

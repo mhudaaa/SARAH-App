@@ -9,7 +9,7 @@ class Kualitas extends Model{
     protected $primaryKey = 'id_cek';
 
     protected $fillable = [
-		'cek_warna', 'cek_bau', 'cek_rasa', 'jumlah_susu', 'pH', 'hasil'
+		'cek_warna', 'cek_bau', 'cek_rasa', 'jumlah_susu', 'pH', 'hasil', 'protein'
 	];
 
 	protected $hidden = [

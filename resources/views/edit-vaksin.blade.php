@@ -99,7 +99,7 @@
 	  				<label for="nama">Nama</label>
   				</div>
   				<div class="input-field col s9">
-	  				<input id="nama" type="text" name="nama_vaksin" value="{{ $vaksin->nama_vaksin }}" maxlength="50">
+	  				<input id="nama" type="text" name="nama_vaksin" value="{{ $vaksin->nama_vaksin }}" maxlength="50" required="">
   				</div>
   			</div>
   			<div class="row">
@@ -107,7 +107,7 @@
 	  				<label for="nama">Manfaat</label>
   				</div>
   				<div class="input-field col s9">
-	  				<textarea name="manfaat" class="materialize-textarea" maxlength="100">{{ $vaksin->manfaat }}</textarea>
+	  				<textarea name="manfaat" class="materialize-textarea" maxlength="100" required="">{{ $vaksin->manfaat }}</textarea>
   				</div>
   			</div>
   			<div class="row">
@@ -115,7 +115,7 @@
 	  				<label for="tanggal">Tanggal</label>
   				</div>
   				<div class="input-field col s9">
-	  				<input id="tanggal" type="date" class="datepicker" name="tgl_vaksin" value="{{ $vaksin->tgl_vaksin }}">
+	  				<input id="tanggal" type="date" class="datepicker" name="tgl_vaksin" value="{{ $vaksin->tgl_vaksin }}" required="">
                     <!-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}"> -->
   				</div>
   			</div>
@@ -124,7 +124,7 @@
                     <label for="jumlah">Jumlah</label>
                 </div>
                 <div class="input-field col s8">
-                    <input id="jumlah" type="text" name="jml_vaksin" value="{{ $vaksin->jml_vaksin }}">
+                    <input id="jumlah" type="text" name="jml_vaksin" value="{{ $vaksin->jml_vaksin }}" required="">
                 </div>
                 <div class="input-field col s1">
                     <label for="jumlah">ml</label>

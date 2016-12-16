@@ -29,13 +29,17 @@ class VaksinController extends Controller{
 
     // Mengubah data vaksin yang telah dimasukkan
     public function ubahDataVaksin(Request $request, $id){
-        $vaksin = Vaksin::find($id);
-        $vaksin->nama_vaksin = $request->nama_vaksin;  
-        $vaksin->manfaat     = $request->manfaat;  
-        $vaksin->tgl_vaksin  = $request->tgl_vaksin;  
-        $vaksin->jml_vaksin  = $request->jml_vaksin;  
-        $vaksin->save();
-        return redirect('/dash/vaksin')->with('message', 'Data berhasil diperbarui');
+        if ($request->jml_vaksin <= 0) {
+            return redirect('/dash/vaksin')->with('message', 'Gagal. Data tidak valid');
+        } else{
+            $vaksin = Vaksin::find($id);
+            $vaksin->nama_vaksin = $request->nama_vaksin;  
+            $vaksin->manfaat     = $request->manfaat;  
+            $vaksin->tgl_vaksin  = $request->tgl_vaksin;  
+            $vaksin->jml_vaksin  = $request->jml_vaksin;  
+            $vaksin->save();
+            return redirect('/dash/vaksin')->with('message', 'Data berhasil diperbarui');
+        }
     }
 
     // Menampilkan detail vaksin berdasarkan Id Vaksin
